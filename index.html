@@ -59,9 +59,9 @@ p { margin: 0; text-wrap: pretty; }
 .eyebrow { display: inline-flex; align-items: center; gap: 12px; font: 600 12px/1.4 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--gold-deep); }
 .eyebrow::before { content: ""; width: 24px; height: 1px; background: currentColor; }
 .sec-dark .eyebrow { color: var(--gold); }
-.head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: end; margin-bottom: 64px; }
+.head { display: flex; flex-direction: column; gap: 24px; margin-bottom: 64px; }
 .head h2 { margin-top: 20px; }
-.head p { color: var(--muted); font-size: 20px; line-height: 1.5; max-width: 520px; justify-self: end; }
+.head p { color: var(--muted); font-size: 20px; line-height: 1.5; max-width: 640px; }
 .sec-dark .head p { color: var(--on-dark-muted); }
 
 /* dugmad */
@@ -203,10 +203,10 @@ p { margin: 0; text-wrap: pretty; }
 @keyframes mq { to { transform: translateX(-50%); } }
 
 /* o klinici */
-.about { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: start; }
-.about-big { font: 300 40px/1.2 var(--serif); color: var(--ink); letter-spacing: -.02em; margin-top: 24px; text-wrap: balance; }
+.about { display: flex; flex-direction: column; gap: 40px; }
+.about-big { font: 300 40px/1.2 var(--serif); color: var(--ink); letter-spacing: -.02em; margin-top: 24px; max-width: 880px; text-wrap: balance; }
 .about-big em { color: var(--gold-deep); }
-.about-txt p { color: var(--muted); font-size: 16px; }
+.about-txt p { color: var(--muted); font-size: 16px; max-width: 720px; }
 .about-txt p + p { margin-top: 16px; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 80px; border-top: 1px solid var(--line); }
 .stat { padding-top: 32px; padding-right: 24px; position: relative; }
@@ -214,7 +214,7 @@ p { margin: 0; text-wrap: pretty; }
 .stat b { display: block; font: 300 64px/1 var(--serif); color: var(--ink); letter-spacing: -.03em; }
 .stat b sup { font-size: 24px; color: var(--gold-deep); vertical-align: top; margin-left: 4px; }
 .stat span { display: block; margin-top: 12px; color: var(--muted); }
-.values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
 .val { display: flex; gap: 16px; align-items: flex-start; padding: 20px; border-radius: 20px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); transition: transform .4s var(--ease), box-shadow .4s; }
 .val:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px var(--gold), 0 20px 40px -24px rgba(29, 39, 51, .25); }
 .val svg { width: 24px; height: 24px; color: var(--gold-deep); flex: none; margin-top: 4px; }
@@ -320,36 +320,20 @@ p { margin: 0; text-wrap: pretty; }
 /* body reshape kalendar */
 .prog { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: center; }
 .prog-txt p { margin-top: 24px; color: var(--on-dark-muted); font-size: 20px; line-height: 1.5; }
-.legend { margin: 40px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-.legend li { display: grid; grid-template-columns: 56px 1fr 40px; gap: 16px; align-items: center; font-size: 16px; color: var(--on-dark); transition: opacity .3s; }
-.legend li b { font: 300 24px/1 var(--serif); color: var(--gold); text-align: right; }
-.legend.dim li { opacity: .36; }
-.legend.dim li.hl { opacity: 1; }
-.price-tag { display: flex; align-items: baseline; gap: 16px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--on-dark-line); }
+.facts { margin: 40px 0 0; padding: 32px 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid var(--on-dark-line); }
+.facts small { display: block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-muted); }
+.facts b { display: block; margin-top: 8px; font: 300 20px/1.2 var(--serif); color: #fff; white-space: nowrap; }
+.pkg { border-radius: var(--r-card); background: var(--ink-2); box-shadow: inset 0 0 0 1px var(--on-dark-line); padding: 40px; }
+.pkg-t { font: 300 28px/1.2 var(--serif); color: #fff; }
+.pkg-list { margin: 24px 0 0; padding: 0; list-style: none; }
+.pkg-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; padding-top: 16px; padding-bottom: 16px; border-top: 1px solid var(--on-dark-line); }
+.pkg-list li > b { font: 300 24px/1 var(--serif); color: var(--gold); }
+.pkg-list strong { display: block; color: #fff; font-weight: 600; }
+.pkg-list span { display: block; margin-top: 4px; font-size: 16px; color: var(--on-dark-muted); }
+.pkg-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 8px; padding-top: 32px; border-top: 1px solid var(--on-dark-line); }
+.price-tag { display: flex; align-items: baseline; gap: 16px; }
 .price-tag b { font: 300 48px/1 var(--serif); color: #fff; letter-spacing: -.02em; }
 .price-tag span { color: var(--on-dark-muted); }
-.tg { display: inline-grid; place-items: center; height: 24px; min-width: 48px; padding-left: 8px; padding-right: 8px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
-.tg.m2c { background: var(--gold); color: var(--ink); }
-.tg.awt { background: transparent; color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
-.tg.ld { background: rgba(255, 255, 255, .9); color: var(--ink); }
-.tg.bs { background: transparent; color: #fff; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5); }
-.tg.ib { background: rgba(214, 169, 37, .22); color: var(--gold); }
-.tg.rf { background: #fff; color: var(--gold-deep); box-shadow: 0 0 16px 2px var(--gold-glow); }
-.cal { border-radius: var(--r-card); background: var(--ink-2); box-shadow: inset 0 0 0 1px var(--on-dark-line); padding: 32px; }
-.cal-h, .cal-w { display: grid; grid-template-columns: 80px repeat(7, 1fr); gap: 8px; }
-.cal-h { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--on-dark-muted); margin-bottom: 12px; }
-.cal-h span { text-align: center; }
-.cal-w + .cal-w { margin-top: 8px; }
-.cal-w > b { align-self: center; font: 300 16px/1.2 var(--serif); color: var(--on-dark-muted); }
-.day { min-height: 88px; border-radius: 12px; background: rgba(255, 255, 255, .04); padding: 8px; display: flex; flex-direction: column; gap: 4px; align-items: stretch; transition: background .4s; }
-.day.closed { background: repeating-linear-gradient(135deg, rgba(255, 255, 255, .03) 0 4px, transparent 4px 8px); }
-.day.lit { background: rgba(255, 255, 255, .08); }
-.day .tg { min-width: 0; width: 100%; transform: scale(.4); opacity: 0; transition: transform .5s var(--ease), opacity .4s; }
-.day .tg.in { transform: none; opacity: 1; }
-.cal.dim .tg { opacity: .16; }
-.cal.dim .tg.hl { opacity: 1; }
-.cal-foot { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px dashed var(--on-dark-line); font-size: 16px; color: var(--on-dark-muted); }
-.cal-foot svg { width: 20px; height: 20px; color: var(--gold); flex: none; }
 
 /* proces */
 .proc { display: grid; grid-template-columns: .9fr 1.1fr; gap: 96px; }
@@ -488,6 +472,7 @@ p { margin: 0; text-wrap: pretty; }
   .fl-dr { left: 0; }
 }
 @media (max-width: 991px) {
+  .values { grid-template-columns: 1fr 1fr; }
   :root { --sec: 96px; }
   .burger { display: block; }
   .nav { position: fixed; inset: 120px 0 auto 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); padding-top: 16px; padding-bottom: 32px; padding-left: 20px; padding-right: 20px; box-shadow: 0 32px 48px -24px rgba(29, 39, 51, .25); transform: translateY(-16px); opacity: 0; visibility: hidden; transition: opacity .35s, transform .45s var(--ease), visibility .35s; }
@@ -499,9 +484,7 @@ p { margin: 0; text-wrap: pretty; }
   .topbar .tb-l .tb-hide { display: none; }
   .hero .wrap { grid-template-columns: 1fr; gap: 56px; }
   .stage { max-width: 600px; }
-  .head { grid-template-columns: 1fr; gap: 24px; }
-  .head p { justify-self: start; }
-  .about, .doc, .prog, .proc, .faq, .dev { grid-template-columns: 1fr; gap: 56px; }
+  .doc, .prog, .proc, .faq, .dev { grid-template-columns: 1fr; gap: 56px; }
   .proc-side { position: static; }
   .dev-card { position: static; }
   .doc-media { max-width: 560px; }
@@ -571,13 +554,9 @@ p { margin: 0; text-wrap: pretty; }
   .dev-body { padding: 28px; }
   .dev-btn .nm { font-size: 24px; }
   .dev-btn .k { display: none; }
-  .cal { padding: 16px; margin-left: -8px; margin-right: -8px; }
-  .cal-h, .cal-w { grid-template-columns: 28px repeat(7, 1fr); gap: 4px; }
-  .cal-h span { font-size: 12px; letter-spacing: 0; }
-  .cal-w > b { font-size: 12px; }
-  .day { min-height: 72px; padding: 4px; border-radius: 8px; }
-  .day .tg { height: 16px; font-size: 8px; padding-left: 0; padding-right: 0; letter-spacing: 0; }
-  .legend li { grid-template-columns: 48px 1fr 32px; }
+  .pkg { padding: 24px; }
+  .facts { grid-template-columns: 1fr; gap: 16px; }
+  .pkg-foot .btn { width: 100%; }
   .price-tag b { font-size: 40px; }
   .step { grid-template-columns: 48px 1fr; gap: 20px; padding-bottom: 48px; }
   .step .num { width: 48px; height: 48px; font-size: 20px; }
@@ -867,24 +846,30 @@ p { margin: 0; text-wrap: pretty; }
   <div class="wrap">
     <div class="prog">
       <div class="prog-txt rv">
-        <span class="eyebrow">Lifecare protokol</span>
-        <h2 style="margin-top: 20px">Body Reshape: <em>mesec dana</em>, jasan plan</h2>
-        <p><span class="s">Program za masne naslage na stomaku i bokovima.</span> <span class="s">Svaki tretman ima svoj dan, a napredak merimo svake nedelje.</span></p>
-        <ul class="legend" id="legend">
-          <li data-t="m2c"><span class="tg m2c">M2C</span>Med2Contour lipoliza<b>4</b></li>
-          <li data-t="awt"><span class="tg awt">AWT</span>Storz Shockwave<b>4</b></li>
-          <li data-t="ld"><span class="tg ld">LD</span>Ballancer limfna drenaža<b>8</b></li>
-          <li data-t="bs"><span class="tg bs">BS</span>Biostimulacija<b>8</b></li>
-          <li data-t="ib"><span class="tg ib">IB</span>InBody analiza tela<b>4</b></li>
-          <li data-t="rf"><span class="tg rf">RF</span>Alma RF zatezanje<b>1</b></li>
+        <span class="eyebrow">Izdvojeni paket</span>
+        <h2 style="margin-top: 20px">Body Reshape: <em>mesec dana</em> do užeg struka</h2>
+        <p><span class="s">Program za masne naslage na stomaku i bokovima.</span> <span class="s">Šest tretmana i plan ishrane spojeni u jedan paket.</span></p>
+        <ul class="facts">
+          <li><small>Za koga</small><b>Stomak i bokovi</b></li>
+          <li><small>Trajanje</small><b>4 nedelje</b></li>
+          <li><small>Cilj</small><b>2–3 broja manje</b></li>
         </ul>
-        <div class="price-tag"><b>148.000</b><span>dinara za ceo program, uz plan ishrane</span></div>
       </div>
-      <div class="rv">
-        <div class="cal" id="cal" aria-label="Raspored tretmana u programu Body Reshape po nedeljama">
-          <div class="cal-h"><span></span><span>Pon</span><span>Uto</span><span>Sre</span><span>Čet</span><span>Pet</span><span>Sub</span><span>Ned</span></div>
+      <div class="pkg rv">
+        <h3 class="pkg-t">Šta dobijate u paketu</h3>
+        <ul class="pkg-list">
+          <li><b>4×</b><div><strong>Med2Contour</strong><span>Razbija masne naslage i smanjuje obim.</span></div></li>
+          <li><b>4×</b><div><strong>Storz Shockwave</strong><span>Deluje na tvrdokorne masne ćelije i celulit.</span></div></li>
+          <li><b>8×</b><div><strong>Ballancer limfna drenaža</strong><span>Izbacuje višak tečnosti i smanjuje nadutost.</span></div></li>
+          <li><b>8×</b><div><strong>Biostimulacija</strong><span>Ubrzava metabolizam i tonira kožu.</span></div></li>
+          <li><b>1×</b><div><strong>Alma RF</strong><span>Zateže kožu posle mršavljenja.</span></div></li>
+          <li><b>4×</b><div><strong>InBody analiza</strong><span>Svake nedelje merimo koliko ste napredovali.</span></div></li>
+          <li><b>+</b><div><strong>Plan ishrane</strong><span>Pravimo ga za vas, prati vas ceo mesec.</span></div></li>
+        </ul>
+        <div class="pkg-foot">
+          <div class="price-tag"><b>148.000</b><span>dinara za ceo paket</span></div>
+          <a class="btn btn-primary" href="#kontakt">Zakažite konsultaciju <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
-        <div class="cal-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 21c0-8 4-14 14-16-1 9-6 14-14 16z"/><path d="M5 21l8-8"/></svg>Personalizovani plan ishrane prati vas sve četiri nedelje.</div>
       </div>
     </div>
   </div>
@@ -1274,30 +1259,6 @@ p { margin: 0; text-wrap: pretty; }
     }, 260);
   }
   dbtn.forEach(function (b, k) { b.addEventListener('click', function () { showDev(k); }); });
-
-  /* Body Reshape kalendar */
-  var plan = { 0: ['ib', 'm2c', 'ld'], 1: ['bs'], 2: ['awt'], 3: ['ld'], 4: ['bs'] };
-  var cal = $('#cal'), label = { m2c: 'M2C', awt: 'AWT', ld: 'LD', bs: 'BS', ib: 'IB', rf: 'RF' }, all = [];
-  for (var w = 0; w < 4; w++) {
-    var row = d.createElement('div'); row.className = 'cal-w';
-    row.innerHTML = '<b>' + (w + 1) + '.<span class="sr-only"> nedelja</span></b>';
-    for (var dd = 0; dd < 7; dd++) {
-      var cell = d.createElement('div'); cell.className = 'day' + (dd === 6 ? ' closed' : '');
-      var list = (plan[dd] || []).slice(); if (w === 3 && dd === 5) list.push('rf');
-      list.forEach(function (t) { var s = d.createElement('span'); s.className = 'tg ' + t; s.dataset.t = t; s.textContent = label[t]; cell.appendChild(s); all.push(s); });
-      row.appendChild(cell);
-    }
-    cal.appendChild(row);
-  }
-  function fill() { all.forEach(function (s, k) { setTimeout(function () { s.classList.add('in'); s.parentNode.classList.add('lit'); }, reduce ? 0 : k * 70); }); }
-  if ('IntersectionObserver' in window && !reduce) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); fill(); } }, { threshold: .35 }).observe(cal);
-  else fill();
-  var legend = $('#legend');
-  $$('li', legend).forEach(function (li) {
-    function on() { legend.classList.add('dim'); cal.classList.add('dim'); li.classList.add('hl'); all.forEach(function (s) { s.classList.toggle('hl', s.dataset.t === li.dataset.t); }); }
-    function off() { legend.classList.remove('dim'); cal.classList.remove('dim'); li.classList.remove('hl'); }
-    li.addEventListener('mouseenter', on); li.addEventListener('mouseleave', off);
-  });
 
   /* svetlosni zrak kroz korake */
   var steps = $('#steps'), beamI = $('.beam i', steps), stepEls = $$('.step', steps);
