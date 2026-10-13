@@ -318,22 +318,21 @@ p { margin: 0; text-wrap: pretty; }
 .dev-facts li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); transform: translateY(-2px); }
 
 /* body reshape kalendar */
-.prog { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; align-items: center; }
+.prog { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .prog-txt p { margin-top: 24px; color: var(--on-dark-muted); font-size: 20px; line-height: 1.5; }
-.facts { margin: 40px 0 0; padding: 32px 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-top: 1px solid var(--on-dark-line); }
-.facts small { display: block; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--on-dark-muted); }
-.facts b { display: block; margin-top: 8px; font: 300 20px/1.2 var(--serif); color: #fff; white-space: nowrap; }
-.pkg { border-radius: var(--r-card); background: var(--ink-2); box-shadow: inset 0 0 0 1px var(--on-dark-line); padding: 40px; }
-.pkg-t { font: 300 28px/1.2 var(--serif); color: #fff; }
-.pkg-list { margin: 24px 0 0; padding: 0; list-style: none; }
-.pkg-list li { display: grid; grid-template-columns: 48px 1fr; gap: 16px; align-items: start; padding-top: 16px; padding-bottom: 16px; border-top: 1px solid var(--on-dark-line); }
-.pkg-list li > b { font: 300 24px/1 var(--serif); color: var(--gold); }
-.pkg-list strong { display: block; color: #fff; font-weight: 600; }
-.pkg-list span { display: block; margin-top: 4px; font-size: 16px; color: var(--on-dark-muted); }
-.pkg-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; margin-top: 8px; padding-top: 32px; border-top: 1px solid var(--on-dark-line); }
-.price-tag { display: flex; align-items: baseline; gap: 16px; }
+.prog-steps { margin: 40px 0 0; padding: 0; list-style: none; display: grid; gap: 24px; }
+.prog-steps li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; align-items: start; }
+.prog-steps li > b { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; box-shadow: inset 0 0 0 1px var(--gold); font: 300 20px/1 var(--serif); color: var(--gold); }
+.prog-steps strong { display: block; color: #fff; font-weight: 600; }
+.prog-steps span { display: block; margin-top: 4px; font-size: 16px; color: var(--on-dark-muted); }
+.prog-buy { display: flex; flex-wrap: wrap; align-items: center; gap: 24px 40px; margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--on-dark-line); }
+.price-tag { display: flex; align-items: center; gap: 16px; }
 .price-tag b { font: 300 48px/1 var(--serif); color: #fff; letter-spacing: -.02em; }
-.price-tag span { color: var(--on-dark-muted); }
+.price-tag span { font-size: 16px; line-height: 1.4; color: var(--on-dark-muted); }
+.prog-ba { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-radius: var(--r-card); overflow: hidden; }
+.prog-ba div { position: relative; }
+.prog-ba img { display: block; width: 100%; height: auto; aspect-ratio: 464 / 664; object-fit: cover; }
+.prog-ba span { position: absolute; left: 16px; bottom: 16px; padding: 8px 16px; border-radius: 999px; background: rgba(29, 39, 51, .72); color: #fff; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 
 /* proces */
 .proc { display: grid; grid-template-columns: .9fr 1.1fr; gap: 96px; }
@@ -554,9 +553,7 @@ p { margin: 0; text-wrap: pretty; }
   .dev-body { padding: 28px; }
   .dev-btn .nm { font-size: 24px; }
   .dev-btn .k { display: none; }
-  .pkg { padding: 24px; }
-  .facts { grid-template-columns: 1fr; gap: 16px; }
-  .pkg-foot .btn { width: 100%; }
+  .prog-buy .btn { width: 100%; }
   .price-tag b { font-size: 40px; }
   .step { grid-template-columns: 48px 1fr; gap: 20px; padding-bottom: 48px; }
   .step .num { width: 48px; height: 48px; font-size: 20px; }
@@ -846,31 +843,23 @@ p { margin: 0; text-wrap: pretty; }
   <div class="wrap">
     <div class="prog">
       <div class="prog-txt rv">
-        <span class="eyebrow">Izdvojeni paket</span>
-        <h2 style="margin-top: 20px">Body Reshape: <em>mesec dana</em> do užeg struka</h2>
-        <p><span class="s">Program za masne naslage na stomaku i bokovima.</span> <span class="s">Šest tretmana i plan ishrane spojeni u jedan paket.</span></p>
-        <ul class="facts">
-          <li><small>Za koga</small><b>Stomak i bokovi</b></li>
-          <li><small>Trajanje</small><b>4 nedelje</b></li>
-          <li><small>Cilj</small><b>2–3 broja manje</b></li>
-        </ul>
-      </div>
-      <div class="pkg rv">
-        <h3 class="pkg-t">Šta dobijate u paketu</h3>
-        <ul class="pkg-list">
-          <li><b>4×</b><div><strong>Med2Contour</strong><span>Razbija masne naslage i smanjuje obim.</span></div></li>
-          <li><b>4×</b><div><strong>Storz Shockwave</strong><span>Deluje na tvrdokorne masne ćelije i celulit.</span></div></li>
-          <li><b>8×</b><div><strong>Ballancer limfna drenaža</strong><span>Izbacuje višak tečnosti i smanjuje nadutost.</span></div></li>
-          <li><b>8×</b><div><strong>Biostimulacija</strong><span>Ubrzava metabolizam i tonira kožu.</span></div></li>
-          <li><b>1×</b><div><strong>Alma RF</strong><span>Zateže kožu posle mršavljenja.</span></div></li>
-          <li><b>4×</b><div><strong>InBody analiza</strong><span>Svake nedelje merimo koliko ste napredovali.</span></div></li>
-          <li><b>+</b><div><strong>Plan ishrane</strong><span>Pravimo ga za vas, prati vas ceo mesec.</span></div></li>
-        </ul>
-        <div class="pkg-foot">
-          <div class="price-tag"><b>148.000</b><span>dinara za ceo paket</span></div>
+        <span class="eyebrow">Paket za mršavljenje</span>
+        <h2 style="margin-top: 20px">Minus 2–3 broja <em>za mesec dana</em></h2>
+        <p><span class="s">Za masne naslage na stomaku i bokovima.</span> <span class="s">Vi dolazite na termine, a mi vodimo ceo plan.</span></p>
+        <ol class="prog-steps">
+          <li><b>1</b><div><strong>Izmerimo vas</strong><span>Na prvom dolasku merimo sastav tela i pravimo plan.</span></div></li>
+          <li><b>2</b><div><strong>Mesec dana tretmana</strong><span>Aparatima topimo masne naslage i zatežemo kožu.</span></div></li>
+          <li><b>3</b><div><strong>Pratimo rezultat</strong><span>Merimo vas svake nedelje, pa vidite koliko ste izgubili.</span></div></li>
+        </ol>
+        <div class="prog-buy">
+          <div class="price-tag"><b>148.000</b><span>dinara za ceo mesec<br>tretmani, merenja i plan ishrane</span></div>
           <a class="btn btn-primary" href="#kontakt">Zakažite konsultaciju <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
+      <figure class="prog-ba rv">
+        <div><img src="assets/pp-telo-pre.webp" alt="Stomak pacijentkinje pre tretmana, iz profila" width="464" height="664" loading="lazy"><span>Pre</span></div>
+        <div><img src="assets/pp-telo-posle.webp" alt="Stomak iste pacijentkinje posle tretmana, vidljivo ravniji" width="464" height="664" loading="lazy"><span>Posle</span></div>
+      </figure>
     </div>
   </div>
 </section>
